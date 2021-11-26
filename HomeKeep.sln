@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{22BACFC1-164B-4900-98DE-D662131C2507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeKeep.Domain", "src\HomeKeep.Domain\HomeKeep.Domain.csproj", "{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EA829D51-D8F3-4783-B52E-4BBD9E883CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeKeep.Domain.Test", "test\HomeKeep.Domain.Test\HomeKeep.Domain.Test.csproj", "{4081505C-A2B1-4343-B984-C8FB6CD25F9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF} = {22BACFC1-164B-4900-98DE-D662131C2507}
+		{4081505C-A2B1-4343-B984-C8FB6CD25F9C} = {EA829D51-D8F3-4783-B52E-4BBD9E883CB7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4081505C-A2B1-4343-B984-C8FB6CD25F9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4081505C-A2B1-4343-B984-C8FB6CD25F9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4081505C-A2B1-4343-B984-C8FB6CD25F9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4081505C-A2B1-4343-B984-C8FB6CD25F9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
