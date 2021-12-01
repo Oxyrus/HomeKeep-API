@@ -1,26 +1,25 @@
-using System;
+namespace HomeKeep.Domain.Aggregates;
 
-namespace HomeKeep.Domain.Aggregates
+public sealed class Item
 {
-    public sealed class Item
+    public Guid Id { get; init; }
+
+    private Item() { }
+
+    private Item(Guid id, string name, uint quantity)
     {
-        private readonly Guid _id;
-
-        private Item(Guid id, string name, uint quantity)
-        {
-            _id = id;
-            Name = name;
-            Quantity = quantity;
-        }
-
-        internal Item(string name, uint quantity)
-        {
-            Name = name;
-            Quantity = quantity;
-        }
-
-        public string Name { get; }
-
-        public uint Quantity { get; }
+        Id = id;
+        Name = name;
+        Quantity = quantity;
     }
+
+    internal Item(string name, uint quantity)
+    {
+        Name = name;
+        Quantity = quantity;
+    }
+
+    public string Name { get; }
+
+    public uint Quantity { get; }
 }

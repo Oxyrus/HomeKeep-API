@@ -2,28 +2,27 @@ using FluentAssertions;
 using HomeKeep.Domain.Aggregates;
 using Xunit;
 
-namespace HomeKeep.Domain.Test.Aggregates
+namespace HomeKeep.Domain.Test.Aggregates;
+
+public class InventoryTest
 {
-    public class InventoryTest
+    [Fact]
+    public void AddItem_Works()
     {
-        [Fact]
-        public void AddItem_Works()
-        {
-            // Arrange
-            var inventory = new Inventory("Home");
+        // Arrange
+        var inventory = new Inventory("Home");
 
-            // Act
-            inventory.AddItem("Butter", 1);
+        // Act
+        inventory.AddItem("Butter", 1);
 
-            // Assert
-            inventory.Items
-                .Count
-                .Should()
-                .Be(1);
+        // Assert
+        inventory.Items
+            .Count
+            .Should()
+            .Be(1);
 
-            inventory.Items
-                .Should()
-                .Contain(i => i.Name == "Butter" && i.Quantity == 1);
-        }
+        inventory.Items
+            .Should()
+            .Contain(i => i.Name == "Butter" && i.Quantity == 1);
     }
 }

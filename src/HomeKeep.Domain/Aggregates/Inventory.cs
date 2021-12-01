@@ -1,31 +1,29 @@
-using System;
-using System.Collections.Generic;
+namespace HomeKeep.Domain.Aggregates;
 
-namespace HomeKeep.Domain.Aggregates
+public sealed class Inventory
 {
-    public sealed class Inventory
+    public Guid Id { get; init; }
+    private readonly List<Item> _items = new();
+
+    private Inventory() { }
+
+    private Inventory(Guid id, string name)
     {
-        private readonly Guid _id;
-        private readonly List<Item> _items = new();
+        Id = id;
+        Name = name;
+    }
 
-        private Inventory(Guid id, string name)
-        {
-            _id = id;
-            Name = name;
-        }
+    public Inventory(string name)
+    {
+        Name = name;
+    }
 
-        public Inventory(string name)
-        {
-            Name = name;
-        }
+    public string Name { get; }
 
-        public string Name { get; }
+    public IReadOnlyList<Item> Items => _items;
 
-        public IReadOnlyList<Item> Items => _items;
-
-        public void AddItem(string name, uint quantity)
-        {
-            _items.Add(new Item(name, quantity));
-        }
+    public void AddItem(string name, uint quantity)
+    {
+        _items.Add(new Item(name, quantity));
     }
 }
