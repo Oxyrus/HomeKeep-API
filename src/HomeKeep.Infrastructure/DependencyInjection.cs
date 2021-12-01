@@ -23,6 +23,7 @@ public static class DependencyInjection
             });
         });
 
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<PostgreSqlContext>());
         services.AddScoped<IQueryRunner, PostgreSqlQueryRunner>();
 
         return services;

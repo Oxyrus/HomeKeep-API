@@ -1,3 +1,4 @@
+using HomeKeep.Application;
 using HomeKeep.Infrastructure;
 using Serilog;
 
@@ -5,7 +6,9 @@ var builder = WebApplication
     .CreateBuilder(args);
 
 // Setup dependency injection across projects
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddControllers();
