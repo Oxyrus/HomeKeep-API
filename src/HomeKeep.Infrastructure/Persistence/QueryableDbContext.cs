@@ -12,9 +12,12 @@ public class QueryableDbContext : IQueryableDbContext
         _context = context;
     }
 
-    public IQueryable<Inventory> Inventories()
+    public IQueryable<Inventory> Inventories
     {
-        return _context.Inventories;
+        get
+        {
+            return _context.Inventories;
+        }
     }
 
     public void Dispose()

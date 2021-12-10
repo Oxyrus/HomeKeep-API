@@ -7,6 +7,8 @@ namespace HomeKeep.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Produces("application/json")]
+[Consumes("application/json")]
 public sealed class InventoryController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -22,6 +24,14 @@ public sealed class InventoryController : ControllerBase
     {
         var inventories = await _mediator.Send(new GetInventoriesQuery());
         return Ok(inventories);
+    }
+
+    [HttpGet("{inventoryId:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetInventoryByIdAsync([FromRoute] Guid inventoryId)
+    {
+        return Ok(await _mediator.Send(new GetInventoryByIdQuery(inventoryId)));
     }
 
     [HttpPost]
