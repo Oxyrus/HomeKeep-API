@@ -19,4 +19,8 @@
       <ProjectReference Include="..\HomeKeep.Infrastructure\HomeKeep.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <InternalsVisibleTo Include="$(AssemblyName).Test" />
+    </ItemGroup>
+
 </Project>

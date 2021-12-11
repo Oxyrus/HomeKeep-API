@@ -4,22 +4,15 @@ public sealed class Item
 {
     public Guid Id { get; init; }
 
-    private Item() { }
+    public string Name { get; }
 
-    private Item(Guid id, string name, uint quantity)
-    {
-        Id = id;
-        Name = name;
-        Quantity = quantity;
-    }
+    public uint Quantity { get; }
+
+    private Item() { }
 
     internal Item(string name, uint quantity)
     {
         Name = name;
         Quantity = quantity;
     }
-
-    public string Name { get; }
-
-    public uint Quantity { get; }
 }

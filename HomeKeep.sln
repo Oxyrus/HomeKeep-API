@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeKeep.Api", "src\HomeKee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeKeep.Infrastructure", "src\HomeKeep.Infrastructure\HomeKeep.Infrastructure.csproj", "{8327E6A4-ED2E-49F4-B8E7-13EC98575AF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeKeep.Application.Test", "test\HomeKeep.Application.Test\HomeKeep.Application.Test.csproj", "{4B61EF75-4F3E-4FFA-948E-8A85D3683D89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeKeep.Api.Test", "test\HomeKeep.Api.Test\HomeKeep.Api.Test.csproj", "{842E8AB2-42F7-48AA-97BD-C1AD41916DDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,8 @@ Global
 		{CF635706-DFB9-4505-AAEF-BECCBA3BB7E4} = {22BACFC1-164B-4900-98DE-D662131C2507}
 		{CF413D67-1F30-4CFD-8F54-0B4A808B0A5F} = {22BACFC1-164B-4900-98DE-D662131C2507}
 		{8327E6A4-ED2E-49F4-B8E7-13EC98575AF3} = {22BACFC1-164B-4900-98DE-D662131C2507}
+		{4B61EF75-4F3E-4FFA-948E-8A85D3683D89} = {EA829D51-D8F3-4783-B52E-4BBD9E883CB7}
+		{842E8AB2-42F7-48AA-97BD-C1AD41916DDF} = {EA829D51-D8F3-4783-B52E-4BBD9E883CB7}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{81C3E910-10F6-40A7-A3D2-57CDAE95A6BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +53,13 @@ Global
 		{8327E6A4-ED2E-49F4-B8E7-13EC98575AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8327E6A4-ED2E-49F4-B8E7-13EC98575AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8327E6A4-ED2E-49F4-B8E7-13EC98575AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B61EF75-4F3E-4FFA-948E-8A85D3683D89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B61EF75-4F3E-4FFA-948E-8A85D3683D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B61EF75-4F3E-4FFA-948E-8A85D3683D89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B61EF75-4F3E-4FFA-948E-8A85D3683D89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842E8AB2-42F7-48AA-97BD-C1AD41916DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842E8AB2-42F7-48AA-97BD-C1AD41916DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842E8AB2-42F7-48AA-97BD-C1AD41916DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842E8AB2-42F7-48AA-97BD-C1AD41916DDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

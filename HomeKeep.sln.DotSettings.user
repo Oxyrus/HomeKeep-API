@@ -1,10 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/Users/andres/Library/Caches/JetBrains/Rider2021.3/resharper-host/temp/Rider/vAny/CoverageData/_HomeKeep.-1497283880/Snapshot/snapshot.utdcvr</s:String>
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=12d5a1b1_002D2201_002D4f49_002D8919_002D5004bd34fb74/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddItem_Works" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=12d5a1b1_002D2201_002D4f49_002D8919_002D5004bd34fb74/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddItem_Works" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
 	
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67fa4a85_002Dddb0_002D45f1_002Da2a3_002Dd39e5523cac5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddItem_Works #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=67fa4a85_002Dddb0_002D45f1_002Da2a3_002Dd39e5523cac5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddItem_Works #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

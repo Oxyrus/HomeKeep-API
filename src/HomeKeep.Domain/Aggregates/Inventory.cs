@@ -7,12 +7,6 @@ public sealed class Inventory
 
     private Inventory() { }
 
-    private Inventory(Guid id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
-
     public Inventory(string name)
     {
         Name = name;
