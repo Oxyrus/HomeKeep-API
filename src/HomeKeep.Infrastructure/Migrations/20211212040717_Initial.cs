@@ -13,7 +13,8 @@ namespace HomeKeep.Infrastructure.Migrations
                 name: "Inventories",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,6 +26,8 @@ namespace HomeKeep.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Quantity = table.Column<long>(type: "bigint", nullable: false),
                     InventoryId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>

@@ -2,8 +2,11 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using FluentAssertions;
 using HomeKeep.Api.Test.Common;
 using HomeKeep.Application.Inventories.Commands;
+using HomeKeep.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace HomeKeep.Api.Test.Inventory;
@@ -30,5 +33,12 @@ public class CreateInventoryTest : BaseIntegrationTest
 
         // Assert
         response.EnsureSuccessStatusCode();
+
+        var createdInventory = await Context.Inventories
+            .FirstOrDefaultAsync(i => i.Name == inventory.Name);
+
+        createdInventory
+            .Should()
+            .NotBeNull();
     }
 }

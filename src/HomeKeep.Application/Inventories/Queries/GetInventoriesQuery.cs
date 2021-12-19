@@ -1,31 +1,30 @@
 using HomeKeep.Application.Common.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace HomeKeep.Application.Inventories.Queries;
 
-public sealed class GetInventoriesQuery : IRequest<IReadOnlyList<InventoryDto>>
+public sealed class GetInventoriesQuery : IRequest<IEnumerable<InventoryDto>>
 {
 }
 
-public sealed class GetInventoriesQueryHandler : IRequestHandler<GetInventoriesQuery, IReadOnlyList<InventoryDto>>
+public sealed class GetInventoriesQueryHandler : IRequestHandler<GetInventoriesQuery, IEnumerable<InventoryDto>>
 {
-    private readonly IQueryRunner _queryRunner;
+    private readonly IQueryableDbContext _queryableDbContext;
 
-    public GetInventoriesQueryHandler(IQueryRunner queryRunner)
+    public GetInventoriesQueryHandler(IQueryableDbContext queryableDbContext)
     {
-        _queryRunner = queryRunner;
+        _queryableDbContext = queryableDbContext;
     }
 
-    public async Task<IReadOnlyList<InventoryDto>> Handle(GetInventoriesQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<InventoryDto>> Handle(GetInventoriesQuery request, CancellationToken cancellationToken)
     {
-        var sql = @"
-SELECT
-    I.""Id""
-FROM ""Inventories"" I
-";
+        var inventories = await _queryableDbContext.Inventories.ToListAsync(cancellationToken);
 
-        var inventories = await _queryRunner.QueryMultipleAsync<InventoryDto>(sql);
-
-        return inventories as IReadOnlyList<InventoryDto> ?? Array.Empty<InventoryDto>();
+        return inventories.Select(i => new InventoryDto
+        {
+            Id = i.Id,
+            Name = i.Name
+        });
     }
 }

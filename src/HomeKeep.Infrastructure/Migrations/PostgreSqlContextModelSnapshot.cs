@@ -28,6 +28,10 @@ namespace HomeKeep.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Inventories");
@@ -41,6 +45,16 @@ namespace HomeKeep.Infrastructure.Migrations
 
                     b.Property<Guid?>("InventoryId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Purchased")
+                        .HasColumnType("boolean");
+
+                    b.Property<long>("Quantity")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 

@@ -1,7 +1,9 @@
 using System.Net.Http;
 using System.Threading.Tasks;
+using HomeKeep.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Npgsql;
 using Respawn;
 using Xunit;
@@ -21,6 +23,7 @@ public class BaseIntegrationTest : IClassFixture<CustomWebApplicationFactory<Pro
 
     protected readonly HttpClient Client;
     protected readonly CustomWebApplicationFactory<Program> Factory;
+    protected readonly PostgreSqlContext Context;
 
     protected BaseIntegrationTest(CustomWebApplicationFactory<Program> factory)
     {
@@ -29,6 +32,9 @@ public class BaseIntegrationTest : IClassFixture<CustomWebApplicationFactory<Pro
         {
             AllowAutoRedirect = false
         });
+
+        using var sp = Factory.Services.CreateScope();
+        Context = sp.ServiceProvider.GetRequiredService<PostgreSqlContext>();
     }
 
     public virtual Task InitializeAsync() => Task.CompletedTask;

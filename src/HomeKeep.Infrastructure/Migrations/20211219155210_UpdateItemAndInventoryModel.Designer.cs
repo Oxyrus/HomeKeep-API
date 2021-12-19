@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HomeKeep.Infrastructure.Migrations
 {
     [DbContext(typeof(PostgreSqlContext))]
-    [Migration("20211201050007_AddGetInventoriesSP")]
-    partial class AddGetInventoriesSP
+    [Migration("20211219155210_UpdateItemAndInventoryModel")]
+    partial class UpdateItemAndInventoryModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,10 @@ namespace HomeKeep.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.ToTable("Inventories");
@@ -43,6 +47,16 @@ namespace HomeKeep.Infrastructure.Migrations
 
                     b.Property<Guid?>("InventoryId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("Purchased")
+                        .HasColumnType("boolean");
+
+                    b.Property<long>("Quantity")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
