@@ -17,6 +17,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Enable CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("SPA", builder =>
+    {
+        builder
+            .WithOrigins("http://localhost:4200")
+            .WithMethods("GET", "POST", "PATCH")
+            .AllowAnyHeader();
+    });
+});
+
 // Configure logger
 Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -36,6 +48,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseCors();
 
 app.UseAuthorization();
 

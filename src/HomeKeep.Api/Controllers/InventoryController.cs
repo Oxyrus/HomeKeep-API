@@ -1,6 +1,7 @@
 using HomeKeep.Application.Inventories.Commands;
 using HomeKeep.Application.Inventories.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeKeep.Api.Controllers;
@@ -9,6 +10,7 @@ namespace HomeKeep.Api.Controllers;
 [Route("api/[controller]")]
 [Produces("application/json")]
 [Consumes("application/json")]
+[EnableCors("SPA")]
 public sealed class InventoryController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -36,9 +38,17 @@ public sealed class InventoryController : ControllerBase
 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<ActionResult> CreateInventoryAsync(CreateInventoryCommand command)
+    public async Task<IActionResult> CreateInventoryAsync(CreateInventoryCommand command)
     {
         await _mediator.Send(command);
         return StatusCode(StatusCodes.Status201Created);
+    }
+
+    [HttpGet("total-pending")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetTotalOfPendingItemsAsync()
+    {
+        var total = await _mediator.Send(new GetInventoriesTotalItemsPendingQuery());
+        return Ok(total);
     }
 }

@@ -1,5 +1,6 @@
 using HomeKeep.Application.Items.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeKeep.Api.Controllers;
@@ -8,6 +9,7 @@ namespace HomeKeep.Api.Controllers;
 [Route("api/inventory/{inventoryId:guid}/[controller]")]
 [Produces("application/json")]
 [Consumes("application/json")]
+[EnableCors("SPA")]
 public class ItemController : ControllerBase
 {
     private readonly IMediator _mediator;
