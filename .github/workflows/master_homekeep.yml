@@ -22,6 +22,13 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
+      - name: Edit connection string
+        uses: benday-inc/edit-dbconnstr-in-appsettings@main
+        with:
+          pathtosettingsfile: '${{ github.workspace }}/src/HomeKeep.Api/appsettings.json'
+          name: "Default"
+          connectionstring: ${{ secrets.CONNECTION_STRING }}
+
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
