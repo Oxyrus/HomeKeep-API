@@ -15,16 +15,15 @@ public static class DependencyInjection
         // Here it would be possible to add a different provider based on a configuration
         // for instance, for the integration tests you probably want to use a different
         // database than the one you're using for development
-        services.AddDbContext<PostgreSqlContext>(options =>
+        services.AddDbContext<ApplicationDbContext>(options =>
         {
-            options.UseNpgsql(configuration.GetSection("ConnectionStrings:Default").Value, builder =>
+            options.UseSqlServer(configuration.GetSection("ConnectionStrings:Default").Value, builder =>
             {
-                builder.MigrationsAssembly(typeof(PostgreSqlContext).Assembly.FullName);
+                builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
             });
         });
 
-        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<PostgreSqlContext>());
-        services.AddScoped<IQueryRunner, PostgreSqlQueryRunner>();
+        services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<IQueryableDbContext, QueryableDbContext>();
 
         return services;

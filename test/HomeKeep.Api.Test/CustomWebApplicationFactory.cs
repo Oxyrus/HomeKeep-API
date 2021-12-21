@@ -28,7 +28,7 @@ public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStar
 
         builder.ConfigureServices(s =>
         {
-            var descriptor = s.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<PostgreSqlContext>));
+            var descriptor = s.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<ApplicationDbContext>));
         });
 
         base.ConfigureWebHost(builder);

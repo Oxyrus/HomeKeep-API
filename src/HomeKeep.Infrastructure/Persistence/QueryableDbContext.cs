@@ -5,9 +5,9 @@ namespace HomeKeep.Infrastructure.Persistence;
 
 public class QueryableDbContext : IQueryableDbContext
 {
-    private readonly PostgreSqlContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public QueryableDbContext(PostgreSqlContext context)
+    public QueryableDbContext(ApplicationDbContext context)
     {
         _context = context;
     }

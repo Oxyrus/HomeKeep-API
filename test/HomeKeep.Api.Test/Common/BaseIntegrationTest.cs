@@ -23,7 +23,7 @@ public class BaseIntegrationTest : IClassFixture<CustomWebApplicationFactory<Pro
 
     protected readonly HttpClient Client;
     protected readonly CustomWebApplicationFactory<Program> Factory;
-    protected readonly PostgreSqlContext Context;
+    protected readonly ApplicationDbContext Context;
 
     protected BaseIntegrationTest(CustomWebApplicationFactory<Program> factory)
     {
@@ -34,7 +34,7 @@ public class BaseIntegrationTest : IClassFixture<CustomWebApplicationFactory<Pro
         });
 
         using var sp = Factory.Services.CreateScope();
-        Context = sp.ServiceProvider.GetRequiredService<PostgreSqlContext>();
+        Context = sp.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     }
 
     public virtual Task InitializeAsync() => Task.CompletedTask;
