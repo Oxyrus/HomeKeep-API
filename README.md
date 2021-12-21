@@ -1,4 +1,6 @@
 # HomeKeep-API
+[![Master](https://github.com/Oxyrus/HomeKeep-API/actions/workflows/master_homekeep.yml/badge.svg)](https://github.com/Oxyrus/HomeKeep-API/actions/workflows/master_homekeep.yml)
+
 HomeKeep API
 
 ## Working with migrations
