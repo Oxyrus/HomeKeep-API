@@ -22,12 +22,12 @@ jobs:
           dotnet-version: '6.0.x'
           include-prerelease: true
 
-      - name: Edit connection string
-        uses: benday-inc/edit-dbconnstr-in-appsettings@main
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
         with:
-          pathtosettingsfile: '${{ github.workspace }}/src/HomeKeep.Api/appsettings.json'
-          name: "Default"
-          connectionstring: ${{ secrets.CONNECTION_STRING }}
+          files: '${{env.DOTNET_ROOT}}/src/HomeKeep.Api/appsettings.json'
+        env:
+          ConnectionStrings.Default: ${{ secrets.CONNECTION_STRING }}
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
