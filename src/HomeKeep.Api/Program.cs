@@ -23,7 +23,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("SPA", builder =>
     {
         builder
-            .WithOrigins("http://localhost:4200")
+            .WithOrigins("http://localhost:4200", "https://homekeep.netlify.app")
             .WithMethods("GET", "POST", "PATCH")
             .AllowAnyHeader();
     });
