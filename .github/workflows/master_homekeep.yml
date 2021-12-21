@@ -26,7 +26,7 @@ jobs:
         uses: benday-inc/edit-dbconnstr-in-appsettings@main
         with:
           pathtosettingsfile: '${{ github.workspace }}/src/HomeKeep.Api/appsettings.json'
-          name: "default"
+          name: "Default"
           connectionstring: ${{ secrets.CONNECTION_STRING }}
 
       - name: Build with dotnet
