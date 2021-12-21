@@ -20,6 +20,10 @@ public static class DependencyInjection
             options.UseSqlServer(configuration.GetSection("ConnectionStrings:Default").Value, builder =>
             {
                 builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+                builder.EnableRetryOnFailure(
+                    maxRetryCount: 10,
+                    maxRetryDelay: TimeSpan.FromSeconds(30),
+                    errorNumbersToAdd: null);
             });
         });
 
